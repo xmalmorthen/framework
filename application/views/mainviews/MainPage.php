@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+<!--codigo para refrescar pÃ¡gina automaticamente modalidad debug      -->
+    <?php  
+      if( defined('__REFRESH')){ echo '<meta http-equiv="refresh" content="'.__REFRESH.'" />'; }          
+    ?>      
 <!--icono de titulo en browser      -->
-    <link rel="shortcut icon" href="<?php echo imgs_path('main/favicon.ico'); ?>" />
-<!--tipo de contenido y codificación    -->
+<link rel="shortcut icon" href="<?php echo imgs_path('/main/favicon.ico'); ?>" />
+<!--tipo de contenido y codificaciï¿½n    -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--titulo de aplicación web    -->
-    <title><?php echo utf8_encode(Get_SessionPageInfo('Head')); ?></title>            
-<!--control de ejecución de javascript    -->
+<!--titulo de aplicaciï¿½n web    -->
+    <title><?php echo Get_SessionPageInfo('Head'); ?></title>            
+<!--metadatos    -->
+    <meta name="description" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
+    <meta name="keywords" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
+<!--control de ejecuciï¿½n de javascript    -->
     <noscript>
 <!--llamada a controlador noscript-->
       <meta http-equiv="refresh" content="0;URL=<?php echo site_url(); ?>/noscript" />
@@ -15,7 +22,7 @@
 <!-- Include Css -->        
         <?php echo isset($css) && ($css) ? $css : ''; ?>
 <!-- Include Js -->
-        <?php echo $js ? $js : '' ; ?>    
+        <?php echo isset($js) && ($js) ? $js : '' ; ?>    
   </head>
   <body>
 <!--div principal-->
@@ -26,10 +33,10 @@
         </header>
 <!--contenido principal-->
         <div id="main_content">
-<!--menu de navegación-->
+<!--menu de navegaciï¿½n-->
             <nav>
             </nav>
-<!--sección de contenido principal-->
+<!--secciï¿½n de contenido principal-->
             <section>
                 <?php echo isset($output) ? $output : "" ;?>
             </section>

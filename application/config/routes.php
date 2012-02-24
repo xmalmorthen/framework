@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "redirige/carga/inicio";
+$route['default_controller'] = "redirige/carga/TRUE/inicio";
 $route['404_override'] = '';
 
 

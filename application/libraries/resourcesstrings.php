@@ -91,6 +91,11 @@ class ResourcesStrings {
         recursos de etiquetas
         */           
             $this->Resources['Etiquetas']
+                    ['Metadata']       = array (
+                                                'Description'   => "Sistema de contról de formatos, APILAC."
+                                            );                                                
+                                                
+            $this->Resources['Etiquetas']
                     ['Error']       = array (
                                                 'Parametro'     => "Falta el parámetro, favor de revisar.",
                                                 'Formato'       => "Formato incorrecto, favor de revisar.",
@@ -130,6 +135,7 @@ class ResourcesStrings {
     } 
     
     public function getResourcesArray(){        
-        return $this->utf8_array_decode($this->Resources);
+        //return $this->utf8_array_decode($this->Resources);
+        return $this->Resources;
     }
 }

@@ -26,7 +26,7 @@ if ( ! function_exists('imgs_path'))
  */            
             utils::ExisteArchivo($fullpath);           
 
-            return $fullpath;
+            return base_url().$fullpath;
         } catch (Exception $e) {
             ShowError($e);
         }
@@ -47,6 +47,33 @@ if ( ! function_exists('jss_path'))
             $_jspath  = __RESOURCESPATH.__JSSPATH;
             
             $fullpath = $_jspath . ($path != '' ? "/{$path}" : '');
+            
+/*
+ * Verificar que exista la ruta o archivo
+ */            
+            utils::ExisteArchivo($fullpath);           
+            
+            return $fullpath;
+        } catch (Exception $e) {
+            ShowError($e);
+        }
+    }
+}
+
+/*
+ * Carpeta de css
+ */
+if ( ! function_exists('css_path'))
+{
+    function css_path($path='')
+    {        
+        try {       
+            if (! defined('__CSSPATH')) {
+                throw new Exception('Variable __CSSPATH, no implementada',1);
+            }            
+            $_cspath  = __RESOURCESPATH.__CSSPATH;
+            
+            $fullpath = $_cspath . ($path != '' ? "/{$path}" : '');
             
 /*
  * Verificar que exista la ruta o archivo

@@ -2,11 +2,13 @@
 
 class redirige extends CI_Controller {
 	
-	public function carga($param = NULL)
+	public function carga($cached = FALSE, $param = NULL)
 	{
+            if ($cached){
+                $this->output->cache(30);
+            }
             $this->load->view($param);
 	}
+        
+        
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
