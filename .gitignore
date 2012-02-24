@@ -1,0 +1,10 @@
+# ARCHIVOS DE CONFIGURACIONES
+config.php
+constants.php
+database.php
+
+# FICHEROS GENERADOS
+*.DS_Store
+ehthumbs.db
+Thumbs.db
+nbproject
