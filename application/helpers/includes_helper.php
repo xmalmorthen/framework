@@ -19,18 +19,14 @@ if ( ! function_exists('js_access'))
             
             if (! $js) return '';
             
-/*
- * Verifica si no está en modo desarrollo para comprimir codigo js
- */ 
+            $incjs = '';
+            
             if (DEBUG == FALSE) {
-                if (!file_exists(jss_path(__MINIFYJS))) {
-                    $CI = &get_instance();
-                    $CI->load->driver('minify');                
-                    $CI->minify->save_file($CI->minify->combine_directory(jss_path(),array('all.php')),jss_path(__MINIFYJS)); 
-                }
+                $CI = &get_instance();
+                $CI->load->driver('minify');
+                $incjs .= "<script type='text/javascript'>";
             }
             
-            $incjs = '';
             foreach($js as $value){
                 if (!$value) continue;
                 
@@ -38,7 +34,14 @@ if ( ! function_exists('js_access'))
                 if (count ($datapart) > 1) {
                     switch ($datapart[count($datapart)-1]) {
                         case 'js':
-                            $incjs .= "<script type='text/javascript' src='".jss_path($value)."'></script>\n";
+/*
+ * Verifica si no está en modo desarrollo para comprimir codigo js
+ */ 
+                            if (DEBUG == FALSE) {
+                                $incjs .= $CI->minify->js->min(jss_path($value));
+                            } else {
+                                $incjs .= "<script type='text/javascript' src='".jss_path($value)."'></script>\n";
+                            }
                             break;
                         case 'php':
                             require_once (jss_path($value)); 
@@ -51,7 +54,9 @@ if ( ! function_exists('js_access'))
                     throw new Exception(ResourceString("Etiquetas,Error,Formato"),1);
                 }
             }
-
+            if (DEBUG == FALSE) {
+                $incjs .= "</script>";
+            }
             return $incjs;            
         } catch (Exception $e) {
             ShowError($e);

@@ -181,7 +181,7 @@ class Minify extends CI_Driver_Library {
 			elseif ($type == 'js')
 			{
 				unset($css_charset);
-				$contents .= "\n".'// @fileRef '.$path_info.' '."\n";
+				$contents .= "\n".'/* @fileRef '.$path_info.' */'."\n";
 				$contents .= $this->js->min($file, $compact);
 			}
 			else

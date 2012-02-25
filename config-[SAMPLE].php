@@ -5,7 +5,7 @@
  * VARIABLES PARA RECUPERACIÓN DE INFORMACION DE CONFIGURACIÓN
  */
 
-define("DEBUG", TRUE);
+define("DEBUG", FALSE);
 
 if(DEBUG){
 //path a la carpeta de recursos
@@ -33,6 +33,10 @@ if(DEBUG){
         define('__IMAGESPATH_AUTH','/auth');
 //path a la carpeta de imagenes de menu
         define('__IMAGESPATH_MNU','/auth');	
+//path a la carpeta de javascript
+        define('__JSSPATH','/js');
 //path a la carpeta de css
         define('__CSSPATH','/css');
+//nombre de archivo minify
+        define('__MINIFYJS','alljs.minify.js');
 }

@@ -25,9 +25,10 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos javascript principales
  */            
-            $Data['js'] = js_access (array("jquery-1.6.2.min.js",
-                                           "jquery-ui-1.8.15.custom.min.js",
-                                           "main.js"));
+            $Data['js'] = js_access (array("prueba.js"));
+            
+            die(var_dump($Data['js']));
+            
 /*
 * Imprimir nueva salida
 */
