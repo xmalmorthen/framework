@@ -1,7 +1,15 @@
+#General
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+
 # ARCHIVOS DE CONFIGURACIONES
-config.php
-constants.php
-database.php
+/config.php
+*/config/config.php
+*/config/constants.php
+*/config/database.php
 
 # FICHEROS GENERADOS
 *.DS_Store
