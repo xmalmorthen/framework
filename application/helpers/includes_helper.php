@@ -76,6 +76,13 @@ if ( ! function_exists('css_access'))
             if (! $css) return '';
             
             $inccss = '';
+            
+            if (DEBUG == FALSE) {
+                $CI = &get_instance();
+                $CI->load->driver('minify');
+                $inccss .= "<script type='text/css'>";
+            }
+            
             foreach($css as $value){
                 if (!$value) continue;
                 
@@ -83,7 +90,12 @@ if ( ! function_exists('css_access'))
                 if (count ($datapart) > 1) {
                     switch ($datapart[count($datapart)-1]) {
                         case 'css':
-                            $inccss .= "<script type='text/javascript' src='".css_path($value)."'></script>\n";
+                            
+                            if (DEBUG == FALSE) {
+                                $inccss .= $CI->minify->js->min(css_path($value));
+                            } else {
+                                $inccss .= "<script type='text/css' src='".css_path($value)."'></script>\n";
+                            }
                             break;
                         case 'php':
                             require_once (css_path($value)); 
@@ -96,7 +108,9 @@ if ( ! function_exists('css_access'))
                     throw new Exception(ResourceString("Etiquetas,Error,Formato"),1);
                 }
             }
-
+            if (DEBUG == FALSE) {
+                $inccss .= "</script>";
+            }
             return $inccss;            
         } catch (Exception $e) {
             ShowError($e);

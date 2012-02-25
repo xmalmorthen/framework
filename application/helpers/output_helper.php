@@ -20,15 +20,11 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos css principales
  */                        
-            $Data['css'] = css_access(array("jquery-ui-1.8.15.custom.css",
-                                            "main.css"));        
+            $Data['css'] = css_access(array("main.css"));        
 /*
  * Cargar archivos javascript principales
  */            
             $Data['js'] = js_access (array("prueba.js"));
-            
-            die(var_dump($Data['js']));
-            
 /*
 * Imprimir nueva salida
 */
