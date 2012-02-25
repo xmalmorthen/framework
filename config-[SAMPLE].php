@@ -20,7 +20,8 @@ if(DEBUG){
         define('__IMAGESPATH_MNU','/auth');
 //path a la carpeta de javascript
         define('__JSSPATH','/js');        
-        
+//path a la carpeta de css
+        define('__CSSPATH','/css');
 } else {
 //path a la carpeta de recursos
         define('__RESOURCESPATH', 'resources');
@@ -32,4 +33,6 @@ if(DEBUG){
         define('__IMAGESPATH_AUTH','/auth');
 //path a la carpeta de imagenes de menu
         define('__IMAGESPATH_MNU','/auth');	
+//path a la carpeta de css
+        define('__CSSPATH','/css');
 }
