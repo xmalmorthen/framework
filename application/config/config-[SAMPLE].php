@@ -190,7 +190,8 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+
+$config['log_threshold'] = DEBUG == FALSE ? 1 : 4;
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +224,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '';
+$config['cache_path'] = "";
 
 /*
 |--------------------------------------------------------------------------

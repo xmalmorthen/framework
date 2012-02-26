@@ -37,4 +37,6 @@ if(DEBUG){
         define('__JSSPATH','/js');
 //path a la carpeta de css
         define('__CSSPATH','/css');
+//tiempo de ezxpiracion en minutos del cache        
+        define('__CACHETIME',60);
 }

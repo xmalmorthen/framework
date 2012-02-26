@@ -9,10 +9,9 @@
 
 if ( ! function_exists('Output'))
 {      
-    function Output($output){               
+    function Output($output){
         $CI = & get_instance();
-        try {                        
-            
+        try {                                                
 /*
  * Cargar la salida original
  */            
@@ -36,13 +35,24 @@ if ( ! function_exists('Output'))
 /*
  * Impirmir salida a navegador con código comprimido
  */                
-                echo compresscodeoutput::zip($CI->load->view("mainviews/MainPage",$Data,true));            
+                $finaloutput = compresscodeoutput::zip($CI->load->view("mainviews/MainPage",$Data,TRUE));            
             } else {
 /*
  * Imprimir salida al navegador sin compresión de código
  */                
-                echo $CI->load->view("mainviews/MainPage",$Data,true);
+                $finaloutput = $CI->load->view("mainviews/MainPage",$Data,TRUE);
             }
+/*
+ * Código para guardar cache
+ */         
+            if (DEBUG == FALSE) {
+                $CI->output->cache(__CACHETIME);
+                $CI->output->_write_cache($finaloutput);
+            }
+/*
+ * Salida final
+ */            
+            echo $finaloutput;
             
         } catch (Exception $e) {
             ShowError($e);

@@ -2,8 +2,10 @@
 */config/development
 */logs/log-*.php
 */logs/!index.html
-*/cache/*
+*/cache/!.htaccess
 */cache/!index.html
+*/cache/*
+
 
 # ARCHIVOS DE CONFIGURACIONES
 /config.php

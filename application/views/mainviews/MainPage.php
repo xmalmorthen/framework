@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-<!--codigo para refrescar página automaticamente modalidad debug      -->
+<!--codigo para refrescar página automaticamente modalidad debug-->
     <?php  
       if( defined('__REFRESH')){ echo '<meta http-equiv="refresh" content="'.__REFRESH.'" />'; }          
     ?>      
 <!--icono de titulo en browser      -->
 <link rel="shortcut icon" href="<?php echo imgs_path('/main/favicon.ico'); ?>" />
-<!--tipo de contenido y codificaci�n    -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--titulo de aplicaci�n web    -->
+<!--tipo de contenido y codificación    -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--titulo de aplicación web    -->
     <title><?php echo Get_SessionPageInfo('Head'); ?></title>            
 <!--metadatos    -->
     <meta name="description" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
     <meta name="keywords" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
-<!--control de ejecuci�n de javascript    -->
+<!--control de ejecución de javascript    -->
     <noscript>
 <!--llamada a controlador noscript-->
       <meta http-equiv="refresh" content="0;URL=<?php echo site_url(); ?>/noscript" />
@@ -33,15 +33,15 @@
         </header>
 <!--contenido principal-->
         <div id="main_content">
-<!--menu de navegaci�n-->
+<!--menu de navegación-->
             <nav>
             </nav>
-<!--secci�n de contenido principal-->
+<!--sección de contenido principal-->
             <section>
                 <?php echo isset($output) ? $output : "" ;?>
             </section>
         </div>
-<!--pie de pagina de contenido principal-->
+<!--pie de página de contenido principal-->
         <footer>
             <?php echo $this->load->view("mainviews/Footer",TRUE); ?>
         </footer>

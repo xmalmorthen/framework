@@ -135,7 +135,6 @@ class ResourcesStrings {
     } 
     
     public function getResourcesArray(){        
-        //return $this->utf8_array_decode($this->Resources);
         return $this->Resources;
     }
 }
