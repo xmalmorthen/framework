@@ -2,11 +2,9 @@
 <html lang="es">
   <head>
 <!--codigo para refrescar página automaticamente modalidad debug-->
-    <?php  
-      if( defined('__REFRESH')){ echo '<meta http-equiv="refresh" content="'.__REFRESH.'" />'; }          
-    ?>      
+    <?php  if( defined('__REFRESH')){ echo '<meta http-equiv="refresh" content="'.__REFRESH.'" />'; } ?>      
 <!--icono de titulo en browser      -->
-<link rel="shortcut icon" href="<?php echo imgs_path('/main/favicon.ico'); ?>" />
+    <link rel="shortcut icon" href="<?php echo imgs_path('/main/favicon.ico'); ?>" />
 <!--tipo de contenido y codificación    -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--titulo de aplicación web    -->
@@ -25,26 +23,39 @@
         <?php echo isset($js) && ($js) ? $js : '' ; ?>    
   </head>
   <body>
-<!--div principal-->
-      <div id="main_placeholder">
-<!--cabecera de contenido principal-->
-        <header>            
-            <?php echo $this->load->view("mainviews/Header",TRUE); ?>
-        </header>
-<!--contenido principal-->
-        <div id="main_content">
-<!--menu de navegación-->
-            <nav>
-            </nav>
-<!--sección de contenido principal-->
-            <section>
-                <?php echo isset($output) ? $output : "" ;?>
-            </section>
+<!--Top Bar-->
+     <div class="topbar">
+        <div class="fill">
+            <div class="container">
+                <?php echo $this->load->view("mainviews/topbar",TRUE); ?>
+            </div>
         </div>
-<!--pie de página de contenido principal-->
-        <footer>
-            <?php echo $this->load->view("mainviews/Footer",TRUE); ?>
-        </footer>
       </div>
+    </div>
+      
+      
+    <div class="container">
+<!--div principal-->
+        <div id="main_placeholder">
+<!--cabecera de contenido principal-->
+            <header>            
+                <?php echo $this->load->view("mainviews/Header",TRUE); ?>
+            </header>
+<!--contenido principal-->
+            <div id="main_content">
+<!--menu de navegación-->
+                <nav>
+                </nav>
+<!--sección de contenido principal-->
+                <section>
+                    <?php echo isset($output) ? $output : "" ;?>
+                </section>
+            </div>
+<!--pie de página de contenido principal-->
+            <footer>
+                <?php echo $this->load->view("mainviews/Footer",TRUE); ?>
+            </footer>
+          </div>
+    </div>
   </body>
 </html>

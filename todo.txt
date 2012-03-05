@@ -1,7 +1,11 @@
+    Diseño y programacion de entorno basico
+        Ancho y alto especifico del entorno
+
     Diseño y programacion de header principal
         Logos
         Titulos
         Menues / Opciones
+        Hacer botonera de opciones
 
     Diseño y programacion de banner de informacion de página (debajo de header principal)
         Imagen

@@ -94,7 +94,7 @@ if ( ! function_exists('css_access'))
                             if (DEBUG == FALSE) {
                                 $inccss .= $CI->minify->js->min(css_path($value));
                             } else {
-                                $inccss .= "<script type='text/css' src='".css_path($value)."'></script>\n";
+                                $inccss .= "<link href='".css_path($value)."' rel='stylesheet'>";
                             }
                             break;
                         case 'php':

@@ -23,6 +23,4 @@
     <span>
         cabecera    
     </span>
-
-    
 </div>

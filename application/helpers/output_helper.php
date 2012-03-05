@@ -19,7 +19,8 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos css principales
  */                        
-            $Data['css'] = css_access(array("main.css"));        
+            $Data['css'] = css_access(array("bootstrap.min.css",
+                                            "main.css"));        
 /*
  * Cargar archivos javascript principales
  */            

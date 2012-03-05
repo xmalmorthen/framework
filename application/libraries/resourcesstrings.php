@@ -87,6 +87,25 @@ class ResourcesStrings {
                                                 "Description"   => "Usuario sesionado correctamente."
                                         );            
 
+                                                
+        /*
+        recursos de info general del sistema
+        */           
+            $this->Resources['Etiquetas']
+                    ['SysInfo']
+                    ['Empresa']       = array (
+                                                'Logo'   => imgs_path(__IMAGESPATH_BUSSINESS."/logo.jpg"),
+                                                'NombreEmpresa' => "APILAC",
+                                                "Detalle" => "Administración portuaria integral de Lázaro Cárdenas"
+                                            );
+                                                
+            $this->Resources['Etiquetas']
+                    ['SysInfo']
+                    ['Sistema']       = array (
+                                                'NombreSistema' => "Sis[CoFor]",
+                                                "Detalle" => "Sistema de contról de formatos"
+                                            );
+            
         /*
         recursos de etiquetas
         */           
