@@ -1,0 +1,19 @@
+    Diseño y programacion de header principal
+        Logos
+        Titulos
+        Menues / Opciones
+
+    Diseño y programacion de banner de informacion de página (debajo de header principal)
+        Imagen
+        Etiqueta de descripcion general
+        Etiqueta de descripcion detallada
+        Separadores
+
+    Diseño y programacion de conten principal
+        Css de area de visualización
+        Estilizado
+
+    Diseño y programacion de foter
+        Logos
+        Imagenes
+        Leyendas
