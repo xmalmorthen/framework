@@ -1,3 +1,8 @@
+﻿    pagina de iconos a usar => http://www.iconfinder.com/search/?q=iconset%3Asuper-mono-basic
+
+
+---------------------------------------------------------------------------------------
+
     Diseño y programacion de entorno basico
         Ancho y alto especifico del entorno
 
