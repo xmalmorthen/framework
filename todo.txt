@@ -2,6 +2,9 @@
 
 
 ---------------------------------------------------------------------------------------
+    Opciones de inicio de sesion
+        Registrarse
+        Recordar contraseña        
 
     Diseño y programacion de entorno basico
         Ancho y alto especifico del entorno
