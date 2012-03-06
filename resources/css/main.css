@@ -1,5 +1,5 @@
 html, body {background-color: #ccc;}
-body {padding-top: 105px; font-family: "Times New Roman",Georgia,Serif;overflow:scroll;}
+body {padding-top: 100px; font-family: "Times New Roman",Georgia,Serif;overflow:scroll;}
 .container {width: 1000px;}
 button {border: none;background-repeat: no-repeat;background-position: center;background-color: transparent;cursor: pointer;}
 

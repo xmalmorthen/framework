@@ -19,12 +19,18 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos css principales
  */                        
-            $Data['css'] = css_access(array("bootstrap.min.css",
-                                            "main.css"));        
+            $Data['css'] = css_access(array("bootstrap.css",
+                                            "main.css"));
 /*
  * Cargar archivos javascript principales
  */            
-            $Data['js'] = js_access (array("prueba.js"));
+            $Data['js'] = js_access (array("bootstrap-twipsy.js","bootstrap-popover.js"));
+            $Data['js'] = "<script src='http://code.jquery.com/jquery-1.7.min.js'></script>\n" . 
+                    
+
+                          $Data['js'];
+            
+            
 /*
 * Imprimir nueva salida
 */
