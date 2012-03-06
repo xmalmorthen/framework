@@ -33,7 +33,6 @@
       </div>
     </div>
       
-      
     <div class="container">
 <!--div principal-->
         <div id="main_placeholder">

@@ -19,21 +19,16 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos css principales
  */                        
-            $Data['css'] = css_access(array("bootstrap.css",
-                                            "main.css"));
+            $Data['css'] = "<link rel='stylesheet' href='http://ckrack.github.com/fbootstrapp/bootstrap.css'>".
+                            css_access(array("main.css"))."\n";
 /*
  * Cargar archivos javascript principales
  */            
-            $Data['js'] = js_access (array("bootstrap-twipsy.js","bootstrap-popover.js"));
             $Data['js'] = "<script src='http://code.jquery.com/jquery-1.7.min.js'></script>\n" . 
-                    
-
-                          $Data['js'];
+                          "<script src='http://ckrack.github.com/fbootstrapp/js/bootstrap-twipsy.js'></script>\n" .
+                          "<script src='http://ckrack.github.com/fbootstrapp/js/bootstrap-popover.js'></script>\n".
+                          js_access (array())."\n";
             
-            
-/*
-* Imprimir nueva salida
-*/
             if (DEBUG == FALSE) {
 /*
  * Si la modalidad no es de desarrollo, agregamos la libreria para comprimir codigo de salida
@@ -43,12 +38,14 @@ if ( ! function_exists('Output'))
  * Impirmir salida a navegador con código comprimido
  */                
                 $finaloutput = compresscodeoutput::zip($CI->load->view("mainviews/MainPage",$Data,TRUE));            
+                
             } else {
 /*
  * Imprimir salida al navegador sin compresión de código
  */                
                 $finaloutput = $CI->load->view("mainviews/MainPage",$Data,TRUE);
             }
+            
 /*
  * Código para guardar cache
  */         
@@ -58,7 +55,7 @@ if ( ! function_exists('Output'))
             }
 /*
  * Salida final
- */            
+ */                        
             echo $finaloutput;
             
         } catch (Exception $e) {

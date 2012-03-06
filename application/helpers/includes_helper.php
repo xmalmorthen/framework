@@ -72,45 +72,19 @@ if ( ! function_exists('css_access'))
     function css_access($css='')
     {
         try{
-            
+
             if (! $css) return '';
             
             $inccss = '';
             
-            if (DEBUG == FALSE) {
-                $CI = &get_instance();
-                $CI->load->driver('minify');
-                $inccss .= "<script type='text/css'>";
-            }
-            
             foreach($css as $value){
+            
                 if (!$value) continue;
                 
-                $datapart = explode('.',$value);
-                if (count ($datapart) > 1) {
-                    switch ($datapart[count($datapart)-1]) {
-                        case 'css':
-                            
-                            if (DEBUG == FALSE) {
-                                $inccss .= $CI->minify->js->min(css_path($value));
-                            } else {
-                                $inccss .= "<link href='".css_path($value)."' rel='stylesheet'>";
-                            }
-                            break;
-                        case 'php':
-                            require_once (css_path($value)); 
-                            break;
-                        default:
-                            throw new Exception(ResourceString("Etiquetas,Error,Formato"),1);
-                            break;
-                    }
-                } else {
-                    throw new Exception(ResourceString("Etiquetas,Error,Formato"),1);
-                }
+                $inccss .= "<link rel='stylesheet' href='".css_path($value)."' >";
+                
             }
-            if (DEBUG == FALSE) {
-                $inccss .= "</script>";
-            }
+            
             return $inccss;            
         } catch (Exception $e) {
             ShowError($e);
