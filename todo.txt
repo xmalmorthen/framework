@@ -11,6 +11,12 @@
         -- Menues / Opciones
         -- Hacer botonera de opciones
         -- Loader
+    
+    Bajar archivos css a proyecto
+
+    Codificar para que los css se kompriman correctamente
+
+    Mecanismo para agregar css con codigo php
 
     Programacion de panel de sesion en header
         Inicio de sesion
