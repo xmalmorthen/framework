@@ -1,19 +1,25 @@
 ﻿    pagina de iconos a usar => http://www.iconfinder.com/search/?q=iconset%3Asuper-mono-basic
 
-
 ---------------------------------------------------------------------------------------
-    Opciones de inicio de sesion
+    -- Opciones de inicio de sesion
+        -- Registrarse
+        -- Recordar contraseña        
+
+    -- Diseño header principal
+        -- Logos
+        -- Titulos
+        -- Menues / Opciones
+        -- Hacer botonera de opciones
+        -- Loader
+
+    Programacion de panel de sesion en header
+        Inicio de sesion
         Registrarse
-        Recordar contraseña        
+        Recordar contraseña
+        
 
     Diseño y programacion de entorno basico
         Ancho y alto especifico del entorno
-
-    Diseño y programacion de header principal
-        Logos
-        Titulos
-        Menues / Opciones
-        Hacer botonera de opciones
 
     Diseño y programacion de banner de informacion de página (debajo de header principal)
         Imagen
