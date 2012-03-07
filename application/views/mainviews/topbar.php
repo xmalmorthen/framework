@@ -49,15 +49,18 @@
 .bussinesheader .nombresistema{display: block;font-size: <?php echo $label['h2']['title']['size'];?>;color: <?php echo $label['h2']['title']['color'];?>;line-height: 1;line-height: 1.2;margin-top: 5px;}
 .bussinesheader .detallesistema{font-size: <?php echo $label['h2']['subtitle']['size'];?>;color: <?php echo $label['h2']['subtitle']['color'];?>;line-height: 1.2;float: left}
 .topbar hr {margin: 0 0;padding: 0 0;border: 0;width: 80%;color: <?php echo $hr[1]['color'];?>;background-color: <?php echo $hr[1]['color'];?>;height: <?php echo $hr[1]['height'];?>px;float: left;}
-.menuheader{float: right; margin-top: 15px; }
-.menuheader .inputsarea{float: left;margin: 0 3px;}
+.menuheader{float: right;margin-top: 15px;}
+.menuheader .inputsarea{float: left;width:300px; margin-left: 10px;}
 .inputsarea input {display: block; width: <?php echo $logininput['width'];?>px; font-size: <?php echo $logininput['font-size'];?>;}
-.inputsarea label {display: inline; margin-right: 3px; color: <?php echo $label['color'];?>;}
-.menuheader form {display: block;}
+.inputsarea label {width: auto; display: inline; margin-right: 3px; color: <?php echo $label['color'];?>;}
+.menuheader form {width: 100%;}
 .menuheader .btnarea{float: right;}
-.btnarea .btnlogin{height: <?php echo $btns['login']['height'];?>px;width: <?php echo $btns['login']['width'];?>px;background-image: url("<?php echo $btns['login']['img'];?>");margin: 10px 0 0 1px;}
-.menuheader nav {line-height: 2;text-align: right;margin: 57px 27px 0 0;}
+.btnarea .btnlogin{margin: 11px 0 0 1px; height: <?php echo $btns['login']['height'];?>px;width: <?php echo $btns['login']['width'];?>px;background-image: url("<?php echo $btns['login']['img'];?>");}
+.menuheader nav {line-height: 2;text-align: right;margin: 52px 33px 0 0;}
 .menuheader nav button {margin: 0 4px;}
+.menuheader .loader {float:left; margin: 8px 0 0 12px; padding:0; display: none;}
+.menuheader .loader span{color:whitesmoke;font-size: .9em;position:relative; margin-left:2px; }
+.menuheader .loader img{float: left;margin: 6px 5px 0 0;}
 .menuheader .btnregister{height: <?php echo $btns['register']['height'];?>px;width: <?php echo $btns['register']['width'];?>px;background-image: url("<?php echo $btns['register']['img'];?>");}
 .menuheader .btnforgotpassword{height: <?php echo $btns['forgotpassword']['height'];?>px;width: <?php echo $btns['forgotpassword']['width'];?>px;background-image: url("<?php echo $btns['forgotpassword']['img'];?>");}
 </style>
@@ -75,22 +78,27 @@
     </div>
 </div>
 
-<div class="menuheader">                    
-    <form action="">
-        <div class="inputsarea"> 
-            <label for="usuario">Usuario</label>
-            <input class="" type="text" placeholder="Nombre de usuario">
-            <label for="contrasenia">Contraseña</label>
-            <input class="" type="password" placeholder="Contraseña">
-        </div>
-        <div class="btnarea"> 
-            <button class="btnlogin" 
-                    type="submit"
-                    rel="popover"
-                    data-content="Iniciar sesión"></button>
-        </div>
-    </form>
+<div class="menuheader">
+    <div class="inputsarea"> 
+        <label style="margin-left: 21px;" for="usuario">Usuario</label>
+        <input type="text" placeholder="Nombre de usuario">
+        <label for="contrasenia">Contraseña</label>
+        <input type="password" placeholder="Contraseña">
+    </div>
+    <div class="btnarea"> 
+        <button class="btnlogin" 
+                type="button"
+                rel="popover"
+                data-content="Iniciar sesión"
+                onclick="login()"></button>
+    </div>
+    
     <nav>
+        <div class="loader">
+            <img src="<?php echo imgs_path(__ANIMATEDGIFS."/facebookloader.gif"); ?>"/>
+            <span>Cargando, favor de esperar...</span>
+        </div>
+                
         <button class="btnregister" 
                 type="button" 
                 rel="popover"
@@ -104,6 +112,12 @@
 </div>
 
 <script type="text/javascript"> 
+    function login(){
+        $(".menuheader .loader").show();
+    }
+    
+    
+    
     $(function(){
         var btnregister         = $(".menuheader .btnregister"),
             btnforgotpassword   = $(".menuheader .btnforgotpassword"),
@@ -111,19 +125,19 @@
             template            = '<div class="arrow"></div><div class="inner" style="width:auto;"><img style="position: absolute;margin: -15px 0 0 -15px" src="<?php echo imgs_path(__IMAGESPATH_BTNS."/info.png"); ?>" alt="Información" /><div class="content" ><span style="font-size: 1.3em;font-weight: bold;color:#76AB3A;"></span></div></div>';
 /* boton login*/
         btnlogin.popover({animate : true, 
-                             delayIn: 600, 
+                             delayIn: 1000, 
                              offset: 5, 
                              placement : 'left',
                              template: template});            
 /* boton registrar usuario*/
         btnregister.popover({animate : true, 
-                             delayIn: 600, 
+                             delayIn: 1000, 
                              offset: 5, 
                              placement : 'left',
                              template: template});
 /** boton cambio de pasword*/                         
         btnforgotpassword.popover({animate : true, 
-                             delayIn: 600, 
+                             delayIn: 1000, 
                              offset: 5, 
                              placement : 'left',
                              template: template});                                                        

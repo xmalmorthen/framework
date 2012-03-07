@@ -31,6 +31,9 @@ if(!DEBUG){
 //path a la carpeta de imagenes de botones
         define('__IMAGESPATH_BTNS','/btns');
 
+//path a la carpeta de gifs animados        
+        define('__ANIMATEDGIFS','/animatedgifs');
+        
 //path a la carpeta de imagenes de negocio
         define('__IMAGESPATH_BUSSINESS','/bussines');
                 
@@ -38,4 +41,4 @@ if(!DEBUG){
         define('__JSSPATH','/js');        
         
 //path a la carpeta de css
-        define('__CSSPATH','/css');
+        define('__CSSPATH','/css');        
