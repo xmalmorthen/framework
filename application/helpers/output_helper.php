@@ -19,15 +19,13 @@ if ( ! function_exists('Output'))
 /*
  * Cargar archivos css principales
  */                        
-            $Data['css'] = "<link rel='stylesheet' href='http://ckrack.github.com/fbootstrapp/bootstrap.css'>".
-                            css_access(array("main.css"))."\n";
+            $Data['css'] = css_access(array("bootstrap.css","main.css"));
 /*
  * Cargar archivos javascript principales
  */            
-            $Data['js'] = "<script src='http://code.jquery.com/jquery-1.7.min.js'></script>\n" . 
-                          "<script src='http://ckrack.github.com/fbootstrapp/js/bootstrap-twipsy.js'></script>\n" .
-                          "<script src='http://ckrack.github.com/fbootstrapp/js/bootstrap-popover.js'></script>\n".
-                          js_access (array())."\n";
+            $Data['js'] = js_access (array("jquery-1.7.min.js",
+                                           "bootstrap-twipsy.js",
+                                           "bootstrap-popover.js"));
             
             if (DEBUG == FALSE) {
 /*

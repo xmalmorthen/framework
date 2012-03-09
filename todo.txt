@@ -12,9 +12,11 @@
         -- Hacer botonera de opciones
         -- Loader
     
-    Bajar archivos css a proyecto
+    --Bajar archivos css a proyecto
 
-    Codificar para que los css se kompriman correctamente
+    --Codificar para que los css se kompriman correctamente
+
+    --Codificar para que los js se kompriman correktamente
 
     Mecanismo para agregar css con codigo php
 
