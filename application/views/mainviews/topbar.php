@@ -1,3 +1,51 @@
+<div class="bussinesheader">
+    <img class="logoempresa" src="<?php echo ResourceString("Etiquetas,SysInfo,Empresa,Logo"); ?>" alt="Logo Empresa" />
+    <div class="datainfo">
+        <span class="nombreempresa"><?php echo ResourceString("Etiquetas,SysInfo,Empresa,NombreEmpresa"); ?></span>
+        <span class="detalleempresa"><?php echo ResourceString("Etiquetas,SysInfo,Empresa,Detalle"); ?></span>
+    </div>
+    <div class="datainfo sisinfo">
+        <span class="nombresistema"><?php echo ResourceString("Etiquetas,SysInfo,Sistema,NombreSistema"); ?></span>
+        <hr/>
+        <span class="detallesistema"><?php echo ResourceString("Etiquetas,SysInfo,Sistema,Detalle"); ?></span>
+    </div>
+</div>
+
+<div class="menuheader">
+    <div class="inputsarea">
+        <span>{label_form_Usuario}</span>
+        <input type="text" placeholder="{input_form_Usuario_Placeholder}">
+        <span>{label_form_Contrasenia}</span>
+        <input type="password" placeholder="{input_form_Contrasenia_Placeholder}">
+    </div>
+    <div class="btnarea"> 
+        <button class="btnlogin" 
+                type="button"
+                rel="popover"
+                data-content="{btn_btnlogin_data_content}"
+                onclick="login()"></button>
+    </div>
+    
+    <nav>
+        <div class="loader">
+            <img src="{loadergif}"/>
+            <span>{loaderlabel}</span>
+        </div>
+                
+        <button class="btnregister" 
+                type="button" 
+                rel="popover"
+                data-content="{btn_btnregister_data_content}">
+            
+        </button>
+        <button class="btnforgotpassword" 
+                type="button"
+                rel="popover"
+                data-content="{btn_btnforgotpassword_data_content}">
+        </button>
+    </nav>
+</div>
+
 <!-- Codigo CSS -->
 <style type="text/css">
 .topbar{
@@ -184,51 +232,3 @@
         btnspopover();
     });
 </script>
-
-<div class="bussinesheader">
-    <img class="logoempresa" src="<?php echo ResourceString("Etiquetas,SysInfo,Empresa,Logo"); ?>" alt="Logo Empresa" />
-    <div class="datainfo">
-        <span class="nombreempresa"><?php echo ResourceString("Etiquetas,SysInfo,Empresa,NombreEmpresa"); ?></span>
-        <span class="detalleempresa"><?php echo ResourceString("Etiquetas,SysInfo,Empresa,Detalle"); ?></span>
-    </div>
-    <div class="datainfo sisinfo">
-        <span class="nombresistema"><?php echo ResourceString("Etiquetas,SysInfo,Sistema,NombreSistema"); ?></span>
-        <hr/>
-        <span class="detallesistema"><?php echo ResourceString("Etiquetas,SysInfo,Sistema,Detalle"); ?></span>
-    </div>
-</div>
-
-<div class="menuheader">
-    <div class="inputsarea">
-        <span>{label_form_Usuario}</span>
-        <input type="text" placeholder="{input_form_Usuario_Placeholder}">
-        <span>{label_form_Contrasenia}</span>
-        <input type="password" placeholder="{input_form_Contrasenia_Placeholder}">
-    </div>
-    <div class="btnarea"> 
-        <button class="btnlogin" 
-                type="button"
-                rel="popover"
-                data-content="{btn_btnlogin_data_content}"
-                onclick="login()"></button>
-    </div>
-    
-    <nav>
-        <div class="loader">
-            <img src="{loadergif}"/>
-            <span>{loaderlabel}</span>
-        </div>
-                
-        <button class="btnregister" 
-                type="button" 
-                rel="popover"
-                data-content="{btn_btnregister_data_content}">
-            
-        </button>
-        <button class="btnforgotpassword" 
-                type="button"
-                rel="popover"
-                data-content="{btn_btnforgotpassword_data_content}">
-        </button>
-    </nav>
-</div>
