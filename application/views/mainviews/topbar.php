@@ -1,3 +1,4 @@
+<!-- Codigo CSS -->
 <style type="text/css">
 .topbar{
     z-index: 500;
@@ -142,6 +143,47 @@
     width: {btns_forgotpassword_width}px;
     background-image: url("{btns_forgotpassword_img}");}
 </style>
+
+<!-- Codigo JS -->
+<script type="text/javascript"> 
+
+/*Referencias a botones*/    
+    var btnregister         = $(".menuheader .btnregister"),
+        btnforgotpassword   = $(".menuheader .btnforgotpassword"),
+        btnlogin            = $(".menuheader .btnlogin");
+
+/*referenciar los botones al popover*/
+    function btnspopover(){
+        var template = '<div class="arrow"></div><div class="inner" style="width:auto;"><img style="position: absolute;margin: -15px 0 0 -15px" src="<?php echo imgs_path(__IMAGESPATH_BTNS."/info.png"); ?>" alt="InformaciÃ³n" /><div class="content" ><span style="font-size: 1.3em;font-weight: bold;color:#76AB3A;"></span></div></div>';
+        
+        /* boton login*/
+        btnlogin.popover({animate : true, 
+                             delayIn: 1000, 
+                             offset: 5, 
+                             placement : 'left',
+                             template: template});            
+        /* boton registrar usuario*/
+        btnregister.popover({animate : true, 
+                             delayIn: 1000, 
+                             offset: 5, 
+                             placement : 'left',
+                             template: template});
+        /** boton cambio de pasword*/                         
+        btnforgotpassword.popover({animate : true, 
+                             delayIn: 1000, 
+                             offset: 5, 
+                             placement : 'left',
+                             template: template}); 
+    }
+    
+    function login(){
+        $(".menuheader .loader").show();
+    }
+    
+    $(function(){
+        btnspopover();
+    });
+</script>
 
 <div class="bussinesheader">
     <img class="logoempresa" src="<?php echo ResourceString("Etiquetas,SysInfo,Empresa,Logo"); ?>" alt="Logo Empresa" />
