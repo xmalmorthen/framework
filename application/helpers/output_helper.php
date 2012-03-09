@@ -12,21 +12,65 @@ if ( ! function_exists('Output'))
     function Output($output){
         $CI = & get_instance();
         try {                                                
+            $CI->load->library('parser_views');
+            
+/*
+ * Refresh
+ */            
+            $Data['refresh'] = defined('__REFRESH') ? '<meta http-equiv="refresh" content="'.__REFRESH.'" />' : '';
+                        
+/*
+ * Shortcuticon
+ */
+            $Data['shortcuticon'] = imgs_path('/main/favicon.ico');
+
 /*
  * Cargar la salida original
  */            
             $Data['output'] = $output;
+            
 /*
- * Cargar archivos css principales
- */                        
-            $Data['css'] = css_access(array("bootstrap.css","main.css"));
-/*
- * Cargar archivos javascript principales
+ * Application title
  */            
+            $Data['applicationtitle'] = Get_SessionPageInfo('Head');
+
+/*
+ * Meta datas
+ */            
+            $Data['metadescription'] = "<meta name='description' content='".ResourceString("Etiquetas,Metadata,Description")."'/>";
+            $Data['metakeywords'] = "<meta name='keywords' content='".ResourceString("Etiquetas,Metadata,Description")."'/>";
+            
+/*
+ * No script
+ */            
+            $Data['noscript'] = site_url()."/noscript";
+
+/*
+ * Css
+ */            
+    /*Cargar archivos css principales*/                        
+            $Data['css'] = css_access(array("bootstrap.css","main.css"));
+
+/*
+ * Js
+ */            
+    /*Cargar archivos javascript principales*/            
             $Data['js'] = js_access (array("jquery-1.7.min.js",
                                            "bootstrap-twipsy.js",
                                            "bootstrap-popover.js"));
             
+            $CI->load->library('parser');
+            
+/*
+ * Topbar
+ */      
+            $Data['topbar'] = topbar::parse();
+            
+/*
+ * Parsear datos
+ */                        
+            $finaloutput  = $CI->parser->parse("mainviews/MainPage", $Data);
+                        
             if (DEBUG == FALSE) {
 /*
  * Si la modalidad no es de desarrollo, agregamos la libreria para comprimir codigo de salida
@@ -35,13 +79,8 @@ if ( ! function_exists('Output'))
 /*
  * Impirmir salida a navegador con código comprimido
  */                
-                $finaloutput = compresscodeoutput::zip($CI->load->view("mainviews/MainPage",$Data,TRUE));            
+                $finaloutput = compresscodeoutput::zip($finaloutput);            
                 
-            } else {
-/*
- * Imprimir salida al navegador sin compresión de código
- */                
-                $finaloutput = $CI->load->view("mainviews/MainPage",$Data,TRUE);
             }
             
 /*

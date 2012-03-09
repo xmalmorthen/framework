@@ -2,32 +2,33 @@
 <html lang="es">
   <head>
 <!--codigo para refrescar página automaticamente modalidad debug-->
-    <?php  if( defined('__REFRESH')){ echo '<meta http-equiv="refresh" content="'.__REFRESH.'" />'; } ?>      
+    {refresh}
 <!--icono de titulo en browser      -->
-    <link rel="shortcut icon" href="<?php echo imgs_path('/main/favicon.ico'); ?>" />
+    <link rel="shortcut icon" href="{shortcuticon}" />
 <!--tipo de contenido y codificación    -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--titulo de aplicación web    -->
-    <title><?php echo Get_SessionPageInfo('Head'); ?></title>            
+    <title>{applicationtitle}</title>            
 <!--metadatos    -->
-    <meta name="description" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
-    <meta name="keywords" content="<?php echo ResourceString("Etiquetas,Metadata,Description"); ?>" />
+    {metadescription}
+    {metakeywords}
 <!--control de ejecución de javascript    -->
     <noscript>
 <!--llamada a controlador noscript-->
-      <meta http-equiv="refresh" content="0;URL=<?php echo site_url(); ?>/noscript" />
+      <meta http-equiv="refresh" content="0;URL={noscript}" />
     </noscript>                
 <!-- Include Css -->        
-        <?php echo isset($css) && ($css) ? $css : ''; ?>
+    {css}    
+        
 <!-- Include Js -->
-        <?php echo isset($js) && ($js) ? $js : '' ; ?>    
+    {js}        
   </head>
   <body>
 <!--Top Bar-->
      <div class="topbar">
         <div class="fill">
             <div class="container">
-                <?php echo $this->load->view("mainviews/topbar",TRUE); ?>
+                {topbar}                
             </div>
         </div>
       </div>
