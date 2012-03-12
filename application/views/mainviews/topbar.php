@@ -19,11 +19,12 @@
         <input type="password" placeholder="{input_form_Contrasenia_Placeholder}">
     </div>
     <div class="btnarea"> 
-        <button class="btnlogin" 
+        <button id="btnlogin"
+                class="btnlogin" 
                 type="button"
                 rel="popover"
                 data-content="{btn_btnlogin_data_content}"
-                onclick="login()"></button>
+                onclick="clickbuttonevent('btnlogin')"></button>
     </div>
     
     <nav>
@@ -32,16 +33,19 @@
             <span>{loaderlabel}</span>
         </div>
                 
-        <button class="btnregister" 
+        <button id="btnregister"
+                class="btnregister" 
                 type="button" 
                 rel="popover"
-                data-content="{btn_btnregister_data_content}">
-            
+                data-content="{btn_btnregister_data_content}"
+                onclick="clickbuttonevent('btnregister')">            
         </button>
-        <button class="btnforgotpassword" 
+        <button id="btnforgotpassword"
+                class="btnforgotpassword" 
                 type="button"
                 rel="popover"
-                data-content="{btn_btnforgotpassword_data_content}">
+                data-content="{btn_btnforgotpassword_data_content}"
+                onclick="clickbuttonevent('btnforgotpassword')">
         </button>
     </nav>
 </div>
@@ -196,9 +200,15 @@
 <script type="text/javascript"> 
 
 /*Referencias a botones*/    
-    var btnregister         = $(".menuheader .btnregister"),
-        btnforgotpassword   = $(".menuheader .btnforgotpassword"),
-        btnlogin            = $(".menuheader .btnlogin");
+    var btnregister         = $("#btnregister"),
+        btnforgotpassword   = $("#btnforgotpassword"),
+        btnlogin            = $("#btnlogin"),
+        loader              = $(".menuheader .loader");
+
+    $(function(){
+/*llamada a referencias popover*/        
+        btnspopover();
+    });
 
 /*referenciar los botones al popover*/
     function btnspopover(){
@@ -224,11 +234,35 @@
                              template: template}); 
     }
     
-    function login(){
-        $(".menuheader .loader").show();
+/*ocultar popover*/
+    function hidepopover(btn){
+        var selectorbtn = $('#'+btn);
+        selectorbtn.popover('hide');
+    }
+
+/*handler para el evento click de los botones*/    
+    function clickbuttonevent(btn){
+/*ocultar popover*/
+        hidepopover(btn); 
+/*ruteo de acciones para los botones*/        
+        switch(btn){
+            case 'btnregister': register(btn);
+            break;
+            case 'btnforgotpassword': forgotpassword(btn);
+            break;
+            case 'btnlogin': login();
+        }
     }
     
-    $(function(){
-        btnspopover();
-    });
+    function register(btn){
+        var selectorbtn = $('#'+btn);
+        
+        $().popover({animate : true, 
+                     delayIn: 0, 
+                     offset: 5, 
+                     placement : 'below'});
+        
+        selectorbtn.popover('show'); 
+    }
+    
 </script>
